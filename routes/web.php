@@ -29,7 +29,7 @@ Route::get('/dashboard', function () {
     ]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::group(['middleware' => ['auth'], 'as' => 'users.', 'prefix' => '/users'], function () {
+Route::group(['middleware' => ['auth', 'verified'], 'as' => 'users.', 'prefix' => '/users'], function () {
     Route::get('/', [UsersController::class, 'index'])->name('users');
     Route::post('/datatable', [UsersController::class, 'datatable'])->name('datatable');
 });

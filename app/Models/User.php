@@ -10,9 +10,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable implements SearchableContract
+class User extends Authenticatable implements SearchableContract, MustVerifyEmail
 {
-    use HasApiTokens, HasFactory, Notifiable, Searchable;
+    use HasApiTokens, HasFactory, Notifiable, Searchable, \Illuminate\Auth\MustVerifyEmail;
 
     protected $guarded = [
         'id',

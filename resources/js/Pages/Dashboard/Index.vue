@@ -31,17 +31,6 @@
                 required: true,
                 type: Object
             }
-        },
-        data: function () {
-            return {
-                statisticsMap: {
-                    users_count: {
-                        icon: 'people',
-                        route: route('users'),
-                        title: 'Users'
-                    },
-                }
-            }
         }
     }
 </script>

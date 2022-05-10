@@ -30,7 +30,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::group(['middleware' => ['auth', 'verified'], 'as' => 'users.', 'prefix' => '/users'], function () {
-    Route::get('/', [UsersController::class, 'index'])->name('users');
+    Route::get('/', [UsersController::class, 'index'])->name('index');
     Route::post('/datatable', [UsersController::class, 'datatable'])->name('datatable');
 });
 

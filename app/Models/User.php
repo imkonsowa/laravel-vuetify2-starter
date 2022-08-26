@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Contracts\SearchableContract;
+use App\Events\UserCreatedEvent;
 use App\Support\Searchable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -30,5 +31,9 @@ class User extends Authenticatable implements SearchableContract, MustVerifyEmai
     protected array $searchable = [
         'name',
         'email',
+    ];
+
+    protected $dispatchesEvents = [
+        'created' => UserCreatedEvent::class
     ];
 }

@@ -35,6 +35,29 @@
         components: {
             XDatatable,
         },
+        mounted() {
+            Notification.requestPermission(res => {
+                if (res === 'denied') {
+                    alert("Permission is denied")
+                }
+            })
+
+            Echo
+                .channel('users.created')
+                .listen('.user.created', (e) => {
+                    this.$refs.usersDatatable.loadData()
+
+                    const notification = new Notification('New user created', {
+                        body: 'Please check the newly created user!'
+                    })
+
+                    notification.
+
+                    setTimeout(() => {
+                        notification.close()
+                    }, 5000)
+                })
+        },
         data: () => ({
             showFormDialog: false,
             showConfirmDeleteDialog: false,

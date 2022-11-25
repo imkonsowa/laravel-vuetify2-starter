@@ -10,7 +10,7 @@
             <XDatatable
                 ref="usersDatatable"
                 :ajax="{
-                    url: route('users.datatable'),
+                    url: route('admin.users.datatable'),
                     query: {
                         type: 'USER'
                     }

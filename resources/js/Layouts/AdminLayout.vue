@@ -125,12 +125,17 @@
                     {
                         icon: 'dashboard',
                         title: 'Dashboard',
-                        to: '/dashboard',
+                        to: '/admin/dashboard',
                     },
                     {
                         icon: 'people',
                         title: 'Users',
-                        to: '/users',
+                        to: '/admin/users',
+                    },
+                    {
+                        icon: 'book_online',
+                        title: 'Tickets',
+                        to: '/admin/tickets',
                     },
                 ],
                 miniVariant: false,

@@ -8,7 +8,8 @@ import vuetify from "@/Plugins/vuetify";
 import store from '@/Plugins/vuex'
 import Vuelidate from 'vuelidate';
 
-import DashboardLayout from "@/Layouts/DashboardLayout";
+import AdminLayout from "@/Layouts/AdminLayout";
+import UsersLayout from "@/Layouts/UsersLayout";
 import Guest from "@/Layouts/Guest";
 
 Vue
@@ -27,7 +28,13 @@ Vue
 createInertiaApp({
     resolve: name => import(`./Pages/${name}`).then(({default: page}) => {
          if (!page.layout) {
-            page.layout = name.includes('Dashboard') ? DashboardLayout : Guest
+             if (name.includes('Admin')) {
+                 page.layout = AdminLayout
+             } else if (name.includes('Users')) {
+                 page.layout = UsersLayout
+             } else {
+                 page.layout = Guest
+             }
          }
 
          return page
